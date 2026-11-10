@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import HotelList from "./pages/HotelList";
 import HotelDetails from "./pages/HotelDetails";
 import Footer from "./components/Footer";
@@ -10,14 +10,14 @@ import Navbar from "./components/Navbar";
 function App() {
   const[role,setRole]=useState("user");
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Navbar role={role} setRole={setRole}/>
       <Routes>
         <Route path="/" element={<HotelList role={role}/>} />
         <Route path="/hotel/:id" element={<HotelDetails role={role}/>} />
       </Routes>
       <Footer/>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
